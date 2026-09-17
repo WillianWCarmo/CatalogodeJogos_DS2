@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Jogos</h1>
+
+<p>
+    Confira os jogos disponíveis no catálogo.
+</p>
+
+<div class="jogos">
+
+    {% for jogo in jogos %}
+
+    <div class="jogo">
+
+        <img
+            src="{{ jogo.imagem }}"
+            alt="{{ jogo.nome }}"
+        >
+
+        <h2>
+            {{ jogo.nome }}
+        </h2>
+
+        <p>
+            {{ jogo.descricao }}
+        </p>
+
+        <p>
+            <strong>Gênero:</strong>
+            {{ jogo.genero }}
+        </p>
+
+        <p>
+            <strong>Plataforma:</strong>
+            {{ jogo.plataforma }}
+        </p>
+
+        <p>
+            <strong>Preço:</strong>
+            R$ {{ "%.2f"|format(jogo.preco) }}
+        </p>
+
+        <a href="/jogo/{{ jogo.id }}">
+            Ver detalhes
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,379 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    background-color: #1e1e2f;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+nav {
+    background-color: #292943;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00bfff;
+}
+
+
+/* =========================
+   PESQUISA
+========================= */
+
+.pesquisa {
+    display: flex;
+    gap: 5px;
+}
+
+.pesquisa input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.pesquisa button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00bfff;
+    color: white;
+    cursor: pointer;
+}
+
+.pesquisa button:hover {
+    background-color: #009acd;
+}
+
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.row {
+    width: 100%;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card > h1 {
+    color: #1e1e2f;
+    margin-bottom: 15px;
+}
+
+.card > p {
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   CATÁLOGO DE JOGOS
+========================= */
+
+.jogos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.jogo {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.jogo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.jogo img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.jogo h2,
+.jogo h3 {
+    margin: 15px 20px 10px;
+    color: #1e1e2f;
+}
+
+.jogo p {
+    margin: 8px 20px;
+    line-height: 1.5;
+}
+
+.jogo a {
+    display: inline-block;
+    margin: 15px 20px 0;
+    padding: 10px 15px;
+    background-color: #00a8e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.jogo a:hover {
+    background-color: #0077a3;
+}
+
+
+/* =========================
+   PÁGINA DE DETALHES
+========================= */
+
+.detalhes {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin: 25px 0;
+}
+
+.detalhes img {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.detalhes div {
+    flex: 1;
+}
+
+.detalhes p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+.formulario {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario label {
+    font-weight: bold;
+    color: #1e1e2f;
+    margin-top: 8px;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #00a8e8;
+}
+
+.formulario textarea {
+    height: 150px;
+    resize: none;
+}
+
+.formulario button {
+    width: 150px;
+    margin: 15px auto 0;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00a8e8;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: #0077a3;
+}
+
+.detalhes {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin: 25px 0;
+}
+
+.detalhes img {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.detalhes div {
+    flex: 1;
+}
+
+.detalhes p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.sinopse {
+    margin-top: 15px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 15px;
+    background-color: #00a8e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.voltar:hover {
+    background-color: #0077a3;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    background-color: #1e1e2f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+    .jogos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detalhes {
+        flex-direction: column;
+    }
+
+    .detalhes img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    nav {
+        flex-direction: column;
+    }
+
+    .pesquisa {
+        width: 100%;
+    }
+
+    .pesquisa input {
+        width: 100%;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .jogos {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+}

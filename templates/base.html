@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Catálogo de Jogos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🎮 Catálogo de Jogos</h1>
+
+    </header>
+
+    <nav>
+
+        <a href="/">Página Principal</a>
+        <a href="/jogos">Jogos</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/contato">Contato</a>
+
+        <form method="GET" action="/pesquisar" class="pesquisa">
+
+            <input type="text" id="pesquisa" name="pesquisa" placeholder="Pesquisar jogo">
+
+            <button>Pesquisar</button>
+
+        </form>
+
+    </nav>
+
+    <main>
+
+        <div class="row">
+
+            <div class="card">
+
+                {% block content %}
+
+                {% endblock %}
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>Desenvolvimento para Servidores II</p>
+
+    </footer>
+
+</body>
+
+</html>

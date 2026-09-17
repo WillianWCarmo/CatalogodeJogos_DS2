@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ projeto }}</h1>
+
+<p>Este site foi desenvolvido para a disciplina de Desenvolvimento para Servidores II.</p>
+
+<h2>Membros do grupo</h2>
+
+<ul>
+
+    {% for membro in grupoMembros %}
+
+    <li>
+        {{ membro.nome }}
+    </li>
+
+    {% endfor %}
+
+</ul>
+
+<br>
+
+<p>
+    <strong>Curso:</strong> {{ curso }}
+</p>
+
+{% if exibir %}
+
+<h2>Tecnologias utilizadas</h2>
+
+<ul>
+
+    {% for tecnologia in lista %}
+
+    <li>{{ tecnologia }}</li>
+
+    {% endfor %}
+
+</ul>
+
+{% endif %}
+
+{% endblock %}

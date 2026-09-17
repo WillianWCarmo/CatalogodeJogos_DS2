@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if jogo %}
+
+<h1>{{ jogo.nome }}</h1>
+
+<div class="detalhes">
+
+    <img
+        src="{{ jogo.imagem }}"
+        alt="{{ jogo.nome }}"
+    >
+
+    <div>
+
+        <h2>Informações do jogo</h2>
+
+        <p>
+            <strong>Descrição:</strong>
+            {{ jogo.descricao }}
+        </p>
+
+        <p>
+            <strong>Gênero:</strong>
+            {{ jogo.genero }}
+        </p>
+
+        <p>
+            <strong>Plataforma:</strong>
+            {{ jogo.plataforma }}
+        </p>
+
+        <p>
+            <strong>Preço:</strong>
+            R$ {{ "%.2f"|format(jogo.preco) }}
+        </p>
+
+    </div>
+
+</div>
+
+<h2>Sinopse</h2>
+
+<p class="sinopse">
+    {{ jogo.sinopse }}
+</p>
+
+<a href="/jogos" class="voltar">
+    Voltar para jogos
+</a>
+
+{% else %}
+
+<h1>Jogo não encontrado</h1>
+
+<p>
+    O jogo que você procura não existe no catálogo.
+</p>
+
+<a href="/jogos" class="voltar">
+    Voltar para jogos
+</a>
+
+{% endif %}
+
+{% endblock %}

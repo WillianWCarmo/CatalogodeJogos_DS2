@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Bem-vindo ao Catálogo de Jogos! 🎮</h1>
+
+<p>
+    Encontre informações sobre diversos jogos,
+    seus gêneros e plataformas.
+</p>
+
+<h2>Jogos em destaque</h2>
+
+<div class="jogos">
+
+    {% for jogo in jogos %}
+
+    <div class="jogo">
+
+        <img src="{{ jogo.imagem }}" alt="{{ jogo.nome }}">
+
+        <h3>{{ jogo.nome }}</h3>
+
+        <p>{{ jogo.descricao }}</p>
+
+        <p>
+            <strong>Gênero:</strong>
+            {{ jogo.genero }}
+        </p>
+
+        <p>
+            <strong>Plataforma:</strong>
+            {{ jogo.plataforma }}
+        </p>
+
+        <a href="/jogo/{{ jogo.id }}">
+            Ver detalhes
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
