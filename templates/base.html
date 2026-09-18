@@ -19,9 +19,11 @@
 <body>
 
     <header>
-
-        <h1>🎮 Catálogo de Jogos</h1>
-
+        <!-- Link envolvendo a imagem da logo -->
+        <a href="/index.html">
+            <!-- Certifique-se de salvar a imagem na pasta static/img com o nome logo.png (ou ajuste o caminho abaixo) -->
+            <img src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Level Up - Seu Catálogo de Games" class="logo">
+        </a>
     </header>
 
     <nav>
