@@ -1,70 +1,64 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Catálogo de Jogos</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
-
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixelarticons@2.3.0/fonts/pixelart-icons-font.min.css">
 </head>
 
 <body>
 
     <header>
-        <!-- Link envolvendo a imagem da logo -->
-        <a href="/index.html">
-            <!-- Certifique-se de salvar a imagem na pasta static/img com o nome logo.png (ou ajuste o caminho abaixo) -->
-            <img src="{{ url_for('static', filename='imagens/logo.png') }}" alt="Level Up - Seu Catálogo de Games" class="logo">
+        <a href="/">
+            <img src="{{ url_for('static', filename='imagens/logo.png') }}" 
+                 alt="Level Up - Seu Catálogo de Games" 
+                 class="logo">
         </a>
     </header>
 
     <nav>
-
-        <a href="/">Página Principal</a>
-        <a href="/jogos">Jogos</a>
-        <a href="/sobre">Sobre</a>
-        <a href="/contato">Contato</a>
+        <a href="/">
+            <i class="pixelart-icons-font-home"></i> Página Principal
+        </a>
+        <a href="/jogos">
+            <i class="pixelart-icons-font-gamepad"></i> Jogos
+        </a>
+        <a href="/sobre">
+            <i class="pixelart-icons-font-info-box"></i> Sobre
+        </a>
+        <a href="/contato">
+            <i class="pixelart-icons-font-mail"></i> Contato
+        </a>
 
         <form method="GET" action="/pesquisar" class="pesquisa">
-
             <input type="text" id="pesquisa" name="pesquisa" placeholder="Pesquisar jogo">
-
-            <button>Pesquisar</button>
-
+            <button>
+                <i class="pixelart-icons-font-search"></i> Pesquisar
+            </button>
         </form>
-
     </nav>
 
     <main>
-
         <div class="row">
-
             <div class="card">
-
                 {% block content %}
-
                 {% endblock %}
-
             </div>
-
         </div>
-
     </main>
 
     <footer>
-
-        <p>Desenvolvimento para Servidores II</p>
-
+        <p>
+            <i class="pixelart-icons-font-gamepad"></i>
+            Desenvolvimento para Servidores II
+        </p>
     </footer>
 
 </body>
-
 </html>

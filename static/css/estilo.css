@@ -9,9 +9,20 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #0f1020;      /* 👈 fundo azul-escuro confortável */
+    color: #e0e0e0;                  /* 👈 texto claro suave */
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 20% 10%, rgba(0, 191, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 90%, rgba(230, 57, 70, 0.08) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+/* Fonte pixelada para títulos */
+h1, h2, h3 {
+    font-family: 'Press Start 2P', monospace;
+    letter-spacing: 1px;
 }
 
 
@@ -20,46 +31,57 @@ body {
 ========================= */
 
 header {
-    background-color: #17182E;
+    background: linear-gradient(180deg, #17182E 0%, #0f1020 100%);
     color: white;
     padding: 25px;
     text-align: center;
+    border-bottom: 3px solid #00bfff;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
 }
 
 header h1 {
-    font-size: 32px;
+    font-size: 28px;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .logo {
-    max-width: 150px; /* Ajuste o tamanho máximo conforme desejar */
+    max-width: 150px;
     height: auto;
     display: block;
     margin: 0 auto;
     background: transparent;
 }
 
+
 /* =========================
    MENU
 ========================= */
 
 nav {
-    background-color: #292943;
+    background-color: #1a1b2e;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
     padding: 15px;
     flex-wrap: wrap;
+    border-bottom: 2px solid #292943;
 }
 
 nav a {
-    color: white;
+    color: #e0e0e0;
     text-decoration: none;
     font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
 nav a:hover {
-    color: #00bfff;
+    color: #ffd700;
+    background-color: rgba(0, 191, 255, 0.1);
+    text-shadow: 0 0 8px #00bfff;
 }
 
 
@@ -73,22 +95,35 @@ nav a:hover {
 }
 
 .pesquisa input {
-    padding: 8px;
-    border: none;
+    padding: 8px 12px;
+    border: 2px solid #00bfff;
     border-radius: 5px;
+    background-color: #0f1020;
+    color: #e0e0e0;
+    font-family: inherit;
+}
+
+.pesquisa input:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .pesquisa button {
-    padding: 8px 12px;
-    border: none;
+    padding: 8px 16px;
+    border: 2px solid #0a0a0a;
     border-radius: 5px;
-    background-color: #00bfff;
-    color: white;
+    background-color: #ffd700;
+    color: #0a0a0a;
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .pesquisa button:hover {
-    background-color: #009acd;
+    background-color: #e63946;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(230, 57, 70, 0.7);
 }
 
 
@@ -107,19 +142,31 @@ main {
 }
 
 .card {
-    background-color: white;
+    background-color: #1a1b2e;      /* 👈 fundo escuro do card principal */
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 2px solid #292943;
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.15);
 }
 
 .card > h1 {
-    color: #1e1e2f;
+    color: #ffd700;
     margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.card > h2 {
+    text-align: center;
+    color: #00bfff;
+    margin: 30px 0 15px;
+    text-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
 }
 
 .card > p {
     margin-bottom: 25px;
+    color: #c0c5d6;
+    line-height: 1.6;
 }
 
 
@@ -134,51 +181,81 @@ main {
     margin-top: 25px;
 }
 
+/* 👇 Card estilo fliperama */
 .jogo {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    background: linear-gradient(180deg, #1e2038 0%, #17182e 100%);
+    border: 3px solid #00bfff;
+    border-radius: 12px;
     overflow: hidden;
     padding-bottom: 20px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
+    box-shadow: 
+        0 0 15px rgba(0, 191, 255, 0.3),
+        inset 0 0 20px rgba(0, 191, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cantos decorativos estilo arcade */
+.jogo::before,
+.jogo::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #ffd700;
+    opacity: 0.7;
+}
+
+.jogo::before {
+    top: 8px;
+    left: 8px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.jogo::after {
+    bottom: 8px;
+    right: 8px;
+    border-left: none;
+    border-top: none;
 }
 
 .jogo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px) scale(1.02);
+    border-color: #ffd700;
+    box-shadow: 
+        0 0 25px rgba(255, 215, 0, 0.5),
+        0 0 50px rgba(0, 191, 255, 0.3),
+        inset 0 0 20px rgba(255, 215, 0, 0.08);
 }
 
 .jogo img {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    border-bottom: 2px solid #00bfff;
 }
 
 .jogo h2,
 .jogo h3 {
     margin: 15px 20px 10px;
-    color: #1e1e2f;
+    color: #ffd700;
+    font-size: 0.9em;
+    line-height: 1.4;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
 }
 
 .jogo p {
     margin: 8px 20px;
     line-height: 1.5;
+    color: #c0c5d6;
+    font-size: 0.9em;
 }
 
-.jogo a {
-    display: inline-block;
-    margin: 15px 20px 0;
-    padding: 10px 15px;
-    background-color: #00a8e8;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.jogo a:hover {
-    background-color: #0077a3;
+.jogo p strong {
+    color: #00bfff;
 }
 
 
@@ -198,21 +275,30 @@ main {
     height: 450px;
     object-fit: cover;
     border-radius: 10px;
+    border: 3px solid #00bfff;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
 }
 
 .detalhes div {
     flex: 1;
 }
 
+.detalhes h2 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
 .detalhes p {
     margin-bottom: 15px;
     line-height: 1.6;
+    color: #c0c5d6;
 }
 
+.detalhes p strong {
+    color: #00bfff;
+}
 
-/* =========================
-   FORMULÁRIOS
-========================= */
 
 /* =========================
    FORMULÁRIOS
@@ -229,7 +315,7 @@ main {
 
 .formulario label {
     font-weight: bold;
-    color: #1e1e2f;
+    color: #00bfff;
     margin-top: 8px;
 }
 
@@ -237,16 +323,20 @@ main {
 .formulario textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 2px solid #292943;
     border-radius: 5px;
-    font-family: Arial, sans-serif;
+    background-color: #0f1020;
+    color: #e0e0e0;
+    font-family: inherit;
     font-size: 15px;
+    transition: all 0.2s ease;
 }
 
 .formulario input:focus,
 .formulario textarea:focus {
     outline: none;
-    border-color: #00a8e8;
+    border-color: #00bfff;
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.5);
 }
 
 .formulario textarea {
@@ -255,64 +345,267 @@ main {
 }
 
 .formulario button {
-    width: 150px;
+    width: 180px;
     margin: 15px auto 0;
     padding: 12px;
-    border: none;
+    border: 3px solid #0a0a0a;
     border-radius: 5px;
-    background-color: #00a8e8;
-    color: white;
-    font-size: 16px;
+    background-color: #ffd700;
+    color: #0a0a0a;
+    font-size: 14px;
     font-weight: bold;
+    font-family: 'Press Start 2P', monospace;
     cursor: pointer;
+    box-shadow: 4px 4px 0 #e63946;
+    transition: all 0.15s ease;
 }
 
 .formulario button:hover {
-    background-color: #0077a3;
+    background-color: #00bfff;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #ffd700;
 }
 
-.detalhes {
+.formulario button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+.alerta {
     display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    margin: 25px 0;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95em;
+    border-left: 5px solid;
+    animation: aparecer 0.4s ease;
 }
 
-.detalhes img {
-    width: 350px;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 10px;
+.alerta-sucesso {
+    background-color: rgba(0, 200, 100, 0.12);
+    border-color: #00c864;
+    color: #00e676;
+    box-shadow: 0 0 15px rgba(0, 200, 100, 0.3);
 }
 
-.detalhes div {
-    flex: 1;
+.alerta-sucesso i {
+    color: #00e676;
+    font-size: 1.4em;
 }
 
-.detalhes p {
-    margin-bottom: 15px;
-    line-height: 1.6;
+.alerta-erro {
+    background-color: rgba(230, 57, 70, 0.12);
+    border-color: #e63946;
+    color: #ff6b7a;
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.3);
 }
+
+.alerta-erro i {
+    color: #ff6b7a;
+    font-size: 1.4em;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   SINOPSE E VOLTAR
+========================= */
 
 .sinopse {
     margin-top: 15px;
     line-height: 1.7;
     text-align: justify;
+    color: #c0c5d6;
+    background-color: rgba(0, 191, 255, 0.05);
+    padding: 15px;
+    border-left: 4px solid #00bfff;
+    border-radius: 5px;
 }
 
 .voltar {
     display: inline-block;
     margin-top: 25px;
-    padding: 10px 15px;
-    background-color: #00a8e8;
-    color: white;
+    padding: 12px 24px;
+    background-color: #ffd700;
+    color: #0a0a0a;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    border: 3px solid #0a0a0a;
+    border-radius: 5px;
+    box-shadow: 5px 5px 0 #e63946;
+    transition: all 0.15s ease;
 }
 
 .voltar:hover {
-    background-color: #0077a3;
+    background-color: #00bfff;
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #ffd700;
+}
+
+.voltar:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+}
+
+
+/* =========================
+   CONTADOR / PREÇO
+========================= */
+
+.contador {
+    text-align: center;
+    color: #00bfff;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.jogo .preco {
+    color: #ffd700;
+    font-size: 1em;
+    margin: 10px 20px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   BOTÃO "VER DETALHES" — pixel/8-bit
+========================= */
+
+.btn-detalhes {
+    display: inline-block;
+    background-color: #ffd700;
+    color: #0a0a0a;
+    padding: 10px 20px;
+    margin: 12px 20px 0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Press Start 2P', monospace;
+    border: 3px solid #0a0a0a;
+    border-radius: 4px;
+    box-shadow: 5px 5px 0 #e63946;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btn-detalhes:hover {
+    background-color: #00bfff;
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #ffd700;
+}
+
+.btn-detalhes:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+}
+
+
+/* =========================
+   BOTÃO "VER TODOS OS JOGOS"
+========================= */
+
+.botao-ver-todos {
+    text-align: center;
+    margin: 40px 0 10px;
+}
+
+.btn-ver-todos {
+    display: inline-block;
+    background-color: #ffd700;
+    color: #0a0a0a;
+    padding: 16px 36px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Press Start 2P', monospace;
+    border: 4px solid #0a0a0a;
+    border-radius: 6px;
+    box-shadow: 
+        6px 6px 0 #e63946,
+        12px 12px 0 #00bfff;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.btn-ver-todos:hover {
+    background-color: #e63946;
+    color: #ffd700;
+    transform: translate(4px, 4px);
+    box-shadow: 
+        3px 3px 0 #ffd700,
+        6px 6px 0 #00bfff;
+}
+
+.btn-ver-todos:active {
+    transform: translate(12px, 12px);
+    box-shadow: none;
+}
+
+
+/* =========================
+   ESTADO VAZIO
+========================= */
+
+.estado-vazio {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.logo-vazio {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px #00bfff);
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+.estado-vazio p {
+    color: #00bfff;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+
+/* =========================
+   SEM JOGOS (fallback)
+========================= */
+
+.sem-jogos {
+    text-align: center;
+    padding: 40px;
+    background-color: #0d1b3e;
+    border: 2px dashed #00bfff;
+    border-radius: 8px;
+    color: #00bfff;
+    font-size: 1.2em;
+    grid-column: 1 / -1;
 }
 
 
@@ -321,17 +614,173 @@ main {
 ========================= */
 
 footer {
-    background-color: #1e1e2f;
-    color: white;
+    background-color: #17182e;
+    color: #a0a8c0;
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+    border-top: 3px solid #00bfff;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
 }
 
 footer p {
     margin: 5px;
+    font-size: 0.9em;
 }
 
+
+/* =========================
+   ÍCONES PIXELARTICONS
+========================= */
+
+/* Ajuste do tamanho dos ícones */
+[class^="pixelart-icons-font-"],
+[class*=" pixelart-icons-font-"] {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Ícones dentro dos botões */
+.btn-detalhes i,
+.btn-ver-todos i,
+.voltar i,
+.formulario button i {
+    margin-right: 6px;
+}
+
+.btn-ver-todos i:last-child {
+    margin-right: 0;
+    margin-left: 6px;
+}
+
+/* Ícones no menu */
+nav a i {
+    margin-right: 6px;
+    color: #00bfff;
+    transition: color 0.2s ease;
+}
+
+nav a:hover i {
+    color: #ffd700;
+}
+
+/* Ícones nos títulos */
+h1 i,
+h2 i {
+    color: #00bfff;
+    margin-right: 10px;
+}
+
+/* Ícones no footer */
+footer i {
+    color: #00bfff;
+    margin-right: 6px;
+}
+
+
+/* =========================
+   LISTA ESTILO PIXEL
+========================= */
+
+.lista-pixel {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.lista-pixel li {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background-color: rgba(0, 191, 255, 0.08);
+    border-left: 3px solid #00bfff;
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-size: 0.95em;
+    transition: all 0.2s ease;
+}
+
+.lista-pixel li:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    border-left-color: #ffd700;
+    transform: translateX(4px);
+}
+
+.lista-pixel li i {
+    color: #00bfff;
+    margin-right: 8px;
+}
+
+
+/* =========================
+   SUBTÍTULO E INFO
+========================= */
+
+.subtitulo {
+    color: #c0c5d6;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+.curso-info {
+    background-color: rgba(0, 191, 255, 0.08);
+    border-left: 3px solid #00bfff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    color: #c0c5d6;
+}
+
+.curso-info strong {
+    color: #00bfff;
+}
+
+/* =========================
+   BOTÃO STEAM
+========================= */
+
+.btn-steam {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #1b2838;          /* azul escuro da Steam */
+    color: #c7d5e0;                     /* cinza claro da Steam */
+    padding: 12px 24px;
+    margin-top: 20px;
+    text-decoration: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 3px solid #66c0f4;          /* azul claro da Steam */
+    border-radius: 4px;
+    box-shadow: 5px 5px 0 #0a0a0a;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.btn-steam i {
+    color: #66c0f4;
+    font-size: 1.2em;
+    transition: color 0.15s ease;
+}
+
+.btn-steam:hover {
+    background-color: #66c0f4;
+    color: #1b2838;
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #0a0a0a;
+}
+
+.btn-steam:hover i {
+    color: #1b2838;
+}
+
+.btn-steam:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+}
 
 /* =========================
    RESPONSIVIDADE
@@ -352,7 +801,6 @@ footer p {
         height: auto;
     }
 }
-
 
 @media (max-width: 600px) {
 
@@ -381,6 +829,11 @@ footer p {
     }
 
     header h1 {
-        font-size: 25px;
+        font-size: 18px;
+    }
+
+    .btn-ver-todos {
+        font-size: 0.8em;
+        padding: 14px 24px;
     }
 }

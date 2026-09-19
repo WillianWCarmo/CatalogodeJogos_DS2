@@ -11,7 +11,7 @@ def sobre():
 
     informacoes = "Este site foi desenvolvido para a disciplina de Desenvolvimento para Servidores II."
 
-    lista = ["Flask", "HTML", "CSS"]
+    lista = ["Flask", "HTML", "CSS", "Python"]
 
     grupoMembros = [
         {

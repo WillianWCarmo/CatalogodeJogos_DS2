@@ -2,42 +2,32 @@
 
 {% block content %}
 
-<h1>{{ projeto }}</h1>
+<h1><i class="pixelart-icons-font-info-box"></i> {{ projeto }}</h1>
 
-<p>Este site foi desenvolvido para a disciplina de Desenvolvimento para Servidores II.</p>
+<p class="subtitulo">
+    Este site foi desenvolvido para a disciplina de Desenvolvimento para Servidores II.
+</p>
 
-<h2>Membros do grupo</h2>
+<h2><i class="pixelart-icons-font-users"></i> Membros do grupo</h2>
 
-<ul>
-
+<ul class="lista-pixel">
     {% for membro in grupoMembros %}
-
-    <li>
-        {{ membro.nome }}
-    </li>
-
+    <li><i class="pixelart-icons-font-user"></i> {{ membro.nome }}</li>
     {% endfor %}
-
 </ul>
 
-<br>
-
-<p>
-    <strong>Curso:</strong> {{ curso }}
+<p class="curso-info">
+    <strong><i class="pixelart-icons-font-book"></i> Curso:</strong> {{ curso }}
 </p>
 
 {% if exibir %}
 
-<h2>Tecnologias utilizadas</h2>
+<h2><i class="pixelart-icons-font-cpu"></i> Tecnologias utilizadas</h2>
 
-<ul>
-
+<ul class="lista-pixel">
     {% for tecnologia in lista %}
-
-    <li>{{ tecnologia }}</li>
-
+    <li><i class="pixelart-icons-font-check"></i> {{ tecnologia }}</li>
     {% endfor %}
-
 </ul>
 
 {% endif %}

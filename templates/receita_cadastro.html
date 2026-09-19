@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
-{% content block %}
-    <h1>Cadastro de Receita</h1>
-    <form action="/receita/cadastrar" method="post">
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome" maxlength="100" required>
 
-        <label for="descricao">Descricao: </label>
-        <input type="text" id="descricao" name="descricao" maxlength="250" required>
+{% block content %}
 
-        <label for="valor">Valor: </label>
-        <input type="number" step="0.01" id="valor" name="valor" min="0" required>
+<h1><i class="pixelart-icons-font-plus"></i> Cadastro de Receita</h1>
 
-        <button>Cadastrar</button>
-    </form>
+<form action="/receita/cadastrar" method="post" class="formulario">
+
+    <label for="nome"><i class="pixelart-icons-font-note"></i> Nome:</label>
+    <input type="text" name="nome" id="nome" maxlength="100" required>
+
+    <label for="descricao"><i class="pixelart-icons-font-list"></i> Descrição:</label>
+    <input type="text" id="descricao" name="descricao" maxlength="250" required>
+
+    <label for="valor"><i class="pixelart-icons-font-coin"></i> Valor:</label>
+    <input type="number" step="0.01" id="valor" name="valor" min="0" required>
+
+    <button type="submit">
+        <i class="pixelart-icons-font-check"></i> Cadastrar
+    </button>
+
+</form>
 
 {% endblock %}

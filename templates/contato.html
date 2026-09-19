@@ -2,48 +2,40 @@
 
 {% block content %}
 
-<h1>Contato</h1>
+<h1><i class="pixelart-icons-font-mail"></i> Contato</h1>
 
-<p>
+<p class="subtitulo">
     Entre em contato conosco através do formulário abaixo.
 </p>
 
+{% with mensagens = get_flashed_messages(with_categories=true) %}
+    {% if mensagens %}
+        {% for categoria, msg in mensagens %}
+        <div class="alerta alerta-{{ categoria }}">
+            {% if categoria == "sucesso" %}
+                <i class="pixelart-icons-font-check"></i>
+            {% else %}
+                <i class="pixelart-icons-font-close"></i>
+            {% endif %}
+            {{ msg }}
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
 <form method="POST" class="formulario">
 
-    <label for="nome">
-        Nome:
-    </label>
+    <label for="nome"><i class="pixelart-icons-font-user"></i> Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
 
-    <input
-        type="text"
-        id="nome"
-        name="nome"
-        placeholder="Digite seu nome"
-    >
+    <label for="email"><i class="pixelart-icons-font-mail"></i> E-mail:</label>
+    <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
 
-    <label for="email">
-        E-mail:
-    </label>
-
-    <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Digite seu e-mail"
-    >
-
-    <label for="mensagem">
-        Mensagem:
-    </label>
-
-    <textarea
-        id="mensagem"
-        name="mensagem"
-        placeholder="Digite sua mensagem"
-    ></textarea>
+    <label for="mensagem"><i class="pixelart-icons-font-note"></i> Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem"></textarea>
 
     <button type="submit">
-        Enviar
+        <i class="pixelart-icons-font-send"></i> Enviar
     </button>
 
 </form>

@@ -2,54 +2,50 @@
 
 {% block content %}
 
-<h1>Jogos</h1>
+<h1>🎮 Todos os Jogos</h1>
 
 <p>
     Confira os jogos disponíveis no catálogo.
 </p>
 
+<p class="contador">
+    <strong>{{ jogos|length }}</strong>
+    jogo{{ 's' if jogos|length != 1 else '' }} encontrado{{ 's' if jogos|length != 1 else '' }}
+</p>
+
+{% if jogos %}
+
 <div class="jogos">
 
-    {% for jogo in jogos %}
+    {% for jogo in jogos %}      <!-- 👈 LOOP obrigatório -->
 
     <div class="jogo">
+        <img src="{{ jogo.imagem }}" alt="{{ jogo.nome }}">
+        <h2>{{ jogo.nome }}</h2>
+        <p>{{ jogo.descricao }}</p>
+        <p><strong>Gênero:</strong> {{ jogo.genero }}</p>
+        <p><strong>Plataforma:</strong> {{ jogo.plataforma }}</p>
+        <p class="preco"><strong>Preço:</strong> R$ {{ "%.2f"|format(jogo.preco) }}</p>
 
-        <img
-            src="{{ jogo.imagem }}"
-            alt="{{ jogo.nome }}"
-        >
-
-        <h2>
-            {{ jogo.nome }}
-        </h2>
-
-        <p>
-            {{ jogo.descricao }}
-        </p>
-
-        <p>
-            <strong>Gênero:</strong>
-            {{ jogo.genero }}
-        </p>
-
-        <p>
-            <strong>Plataforma:</strong>
-            {{ jogo.plataforma }}
-        </p>
-
-        <p>
-            <strong>Preço:</strong>
-            R$ {{ "%.2f"|format(jogo.preco) }}
-        </p>
-
-        <a href="/jogo/{{ jogo.id }}">
+        <a href="/jogo/{{ jogo.id }}" class="btn-detalhes">
             Ver detalhes
         </a>
-
     </div>
 
-    {% endfor %}
+    {% endfor %}                 <!-- 👈 FIM do loop -->
 
+</div>
+
+{% else %}
+
+<div class="sem-jogos">
+    <p>😢 Nenhum jogo encontrado no catálogo.</p>
+</div>
+
+{% endif %}
+
+<div class="botao-ver-todos">
+    <a href="/" class="btn-ver-todos">← Voltar para a Home</a>
 </div>
 
 {% endblock %}
